@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['isLoggedIn'])){
+if (isset($_SESSION['isLoggedIn'])) {
     header("location: /");
 }
 ?>
@@ -46,7 +46,7 @@ if(isset($_SESSION['isLoggedIn'])){
                 </div>
                 <div class="mb-2">
                     <label for="pswd" class="mt-1 text-gray-500">Password</label>
-                    <input type="password" name="pswd" id="pswd" required placeholder="....."
+                    <input type="password" name="pswd" id="pswd" required placeholder="············"
                         class="p-2 w-full outline-none border-2 border-gray-200 rounded" value="admin" />
                 </div>
                 <div class="w-full mt-2">
