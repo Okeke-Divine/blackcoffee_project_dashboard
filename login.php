@@ -10,17 +10,17 @@
         <div class="bg-white p-10 rounded-lg border-2 border-gray-300 w-[80%] md:w-[60%] lg:w-[500px]">
             <div class="font-bold text-2xl">Welcome to Dashboard!</div>
             <div class="mt-1 text-gray-500">Please sign-in to continue</div>
-            <form class="mt-2">
+            <form class="mt-2" method="POST">
                 <div class="mb-2">
                     <label class="mt-1 text-gray-500">Email or Username</label>
-                    <input placeholder="johndoe@gmail.com" class="p-2 w-full outline-none border-2 border-gray-200 rounded" value="admin@gmail.com" />
+                    <input placeholder="johndoe@gmail.com" name="email" class="p-2 w-full outline-none border-2 border-gray-200 rounded" value="admin@gmail.com" />
                 </div>
                 <div class="mb-2">
                     <label class="mt-1 text-gray-500">Password</label>
-                    <input type="password" required placeholder="....." class="p-2 w-full outline-none border-2 border-gray-200 rounded" value="admin" />
+                    <input type="password" names="pswd" required placeholder="....." class="p-2 w-full outline-none border-2 border-gray-200 rounded" value="admin" />
                 </div>
                 <div class="w-full mt-2">
-                    <button class="bg-purple-700 text-white py-3 w-full text-center rounded-lg">Login</button>
+                    <button type="submit" class="bg-purple-700 text-white py-3 w-full text-center rounded-lg">Login</button>
                 </div>
             </form>
         </div>
