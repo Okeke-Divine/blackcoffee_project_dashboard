@@ -1,7 +1,7 @@
 <?php
 
 define("DB_NAME", "blackcoffee_project_dashboard");
-define("HOST_NAME", "locahost");
+define("SERVER_NAME", "localhost");
 define("USER_NAME", "root");
 define("USER_PSWD", "");
 
