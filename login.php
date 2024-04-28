@@ -53,6 +53,8 @@ if (isset($_SESSION['isLoggedIn'])) {
                     <button class="bg-purple-700 text-white py-3 w-full text-center rounded-lg">Login</button>
                 </div>
             </form>
+            <div class="mt-5 text-center">Built by <a href="https://okekedivine.vercel.app" target="_blank"
+                    class="text-purple-700">Dev Divine</a></div>
         </div>
     </div>
 
