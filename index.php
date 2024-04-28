@@ -1,13 +1,94 @@
-<?php require('auth-validator.php'); ?>
+<?php require ('auth-validator.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php require('meta-head.php'); ?>
-    <title>Black Cofee</title>
+    <title>Dashboard | Black Cofee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-ZZfrbOnf6K9vdIwBVDiW6CNvGhnczfeNNyjGtf2YBWy1nS1fUxvTx5QsVjcvTtEZPFowC47Gyf+9xDdWm1WdGQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    
-test
 
+<body>
+    <div class="bg-gray-200 min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-3xl w-full">
+            <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
+            <div class="flex justify-between mb-4">
+                <div>
+                    <label for="sort-by" class="text-gray-500 mr-2">Sort By:</label>
+                    <select id="sort-by" class="p-2 border border-gray-300 rounded">
+                        <option value="id">ID</option>
+                        <option value="end_year">End Year</option>
+                        <option value="sector">Sector</option>
+                        <option value="topic">Topic</option>
+                        <option value="relevance">Relevance</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="order" class="text-gray-500 mr-2">Order:</label>
+                    <select id="order" class="p-2 border border-gray-300 rounded">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+            </div>
+            <div id="table-container">
+                <!-- Table will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to fetch data from API and render table
+            function fetchData(sortBy, order) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "api.php?sortBy=" + sortBy + "&order=" + order, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        renderTable(data);
+                    }
+                };
+                xhr.send();
+            }
+
+            // Function to render table
+            function renderTable(data) {
+                var table = '<table class="table-auto w-full">';
+                table += '<thead><tr><th class="border px-4 py-2">ID</th><th class="border px-4 py-2">End Year</th><th class="border px-4 py-2">Sector</th><th class="border px-4 py-2">Topic</th><th class="border px-4 py-2">Relevance</th></tr></thead>';
+                table += '<tbody>';
+                data.forEach(function (entry) {
+                    table += '<tr>';
+                    table += '<td class="border px-4 py-2">' + entry.id + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.end_year + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.sector + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.topic + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.relevance + '</td>';
+                    table += '</tr>';
+                });
+                table += '</tbody></table>';
+                document.getElementById('table-container').innerHTML = table;
+            }
+
+            // Call the fetchData function with default sorting parameters when the page loads
+            fetchData('id', 'asc');
+
+            // Event listener for dropdown changes
+            document.getElementById('sort-by').addEventListener('change', function () {
+                var sortBy = this.value;
+                var order = document.getElementById('order').value;
+                fetchData(sortBy, order);
+            });
+
+            document.getElementById('order').addEventListener('change', function () {
+                var order = this.value;
+                var sortBy = document.getElementById('sort-by').value;
+                fetchData(sortBy, order);
+            });
+        });
+    </script>
 </body>
+
 </html>

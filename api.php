@@ -1,41 +1,34 @@
-<?php require('auth-validator.php'); ?>
 <?php
-// Include the PHP file containing the database connection
+
+// Include the PHP file containing the authentication validator and database connection
+require_once("auth-validator.php");
 require_once("conn.php");
 
-// Set content type to JSON
-header("Content-Type: application/json");
+// Default sorting and ordering parameters
+$sortBy = isset($_GET['sortBy']) ? $_GET['sortBy'] : 'id';
+$order = isset($_GET['order']) && ($_GET['order'] == 'desc') ? 'DESC' : 'ASC';
 
-// Query to retrieve the first 10 entries from the database
-$query = "SELECT * FROM data LIMIT 10";
+// Query to fetch data from the database, filtering out NULL values for the sorting column
+$query = "SELECT * FROM data WHERE $sortBy IS NOT NULL ORDER BY $sortBy $order LIMIT 10";
 
 // Execute the query
 $result = $conn->query($query);
 
-// Check if the query was successful
-if ($result) {
-    // Initialize an array to store the results
+// Check if there are any results
+if ($result->num_rows > 0) {
     $data = array();
-
-    // Fetch associative array of the result rows
+    // Fetch data rows and store them in an array
     while ($row = $result->fetch_assoc()) {
-        // Add each row to the data array
         $data[] = $row;
     }
-
-    // Free the result set
-    $result->free();
-
-    // Convert the data array to JSON format
-    $json = json_encode($data);
-
-    // Output the JSON response
-    echo $json;
+    // Send JSON response with the fetched data
+    echo json_encode($data);
 } else {
-    // If the query fails, return an error message
-    echo json_encode(array("error" => "Failed to fetch data from the database."));
+    // Send empty JSON response if no data found
+    echo json_encode([]);
 }
 
 // Close the database connection
 $conn->close();
+
 ?>
