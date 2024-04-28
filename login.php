@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['isLoggedIn'])){
+    header("location: /");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@ session_start();
 
     <div class="bg-gray-200 w-full min-h-[100vh] flex justify-center items-center">
         <div class="bg-white p-10 rounded-lg border-2 border-gray-300 w-[80%] md:w-[60%] lg:w-[500px]">
-            <div class="font-bold text-2xl">Welcome to Dashboard!</div>
+            <div class="font-bold text-2xl">Welcome to Black Cofee Dashboard!</div>
             <div class="mt-1 text-gray-500">Please sign-in to continue</div>
             <?php
 

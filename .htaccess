@@ -1,4 +1,5 @@
 RewriteEngine On
 
 RewriteRule ^login?$ login.php
+RewriteRule ^logout?$ logout.php
 RewriteRule ^import?$ import.php
