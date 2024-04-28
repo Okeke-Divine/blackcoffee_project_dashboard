@@ -1,6 +1,4 @@
-Data Visualization Dashboard
--Use data
--Create a database (of your interest such as mongodb, postgresql, sql) from the Data.csv data given.
+-import data
 -Use PHP Stack to design and develop a dashboard
 -For charts or visualizations, you can use either of the following: 
 oCharts in php
