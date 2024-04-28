@@ -1,22 +1,22 @@
 id
-title
-topic
-pestle
-source
-insight
-sector
-url
-country
-city
-region
-start_year
-end_year
-citylat
-citylng
-relevance
-likelihood
-impact
-swot
-intensity
-added
-published
+title => text
+topic => varchar
+pestle => varchar
+source => varchar
+insight => text
+sector  => varchar
+url  => varchar
+country => varchar
+city => varchar
+region  => varchar
+start_year => interger
+end_year => interger
+citylat => float
+citylng => float
+relevance => int
+likelihood => int
+impact => int
+swot => varchar
+intensity => int
+added => date_time
+published => date_time
