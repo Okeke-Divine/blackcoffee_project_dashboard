@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +23,14 @@
                 $pswd = $_POST['pswd'];
                 if ($emailNname !== "admin@gmail.com" || $pswd !== "admin") {
                     ?>
-                    <div class="rounded p-5 bg-red-200 text-red-600 border-[1px] border-red-600 my-2">Invalid login. (Use the default values)</div>
-                <?php
+                    <div class="rounded p-5 bg-red-200 text-red-600 border-[1px] border-red-600 my-2">Invalid login. (Use the
+                        default values)</div>
+                    <?php
+                } else {
+                    echo "success";
+                    $_SESSION['isLoggedIn'] = "true";
+                    echo $_SESSION['isLoggedIn'];
+                    header("location: /");
                 }
             }
 

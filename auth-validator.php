@@ -1,6 +1,6 @@
 <?php
-
-if(!isset($_SESSION['isLoggenIn'])){
+session_start();
+if(!isset($_SESSION['isLoggedIn'])){
     header("location: /login");
 }
 
