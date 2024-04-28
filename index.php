@@ -63,12 +63,21 @@
             // Function to render table
             function renderTable(data) {
                 var table = '<table class="table-auto w-full">';
-                table += '<thead><tr><th class="border px-4 py-2">ID</th><th class="border px-4 py-2">End Year</th><th class="border px-4 py-2">Sector</th><th class="border px-4 py-2">Topic</th><th class="border px-4 py-2">Region</th><th class="border px-4 py-2">Pestle</th><th class="border px-4 py-2">Source</th><th class="border px-4 py-2">Swot</th><th class="border px-4 py-2">Country</th><th class="border px-4 py-2">City</th></tr></thead>';
+                table += `<thead><tr><th class="border px-4 py-2">ID</th>
+                <th class="border px-4 py-2">Intensity</th>
+                <th class="border px-4 py-2">Likelihood</th>
+                <th class="border px-4 py-2">Relevance</th>
+                <th class="border px-4 py-2">Start Year</th>
+                <th class="border px-4 py-2">End Year</th><th class="border px-4 py-2">Sector</th><th class="border px-4 py-2">Topic</th><th class="border px-4 py-2">Region</th><th class="border px-4 py-2">Pestle</th><th class="border px-4 py-2">Source</th><th class="border px-4 py-2">Swot</th><th class="border px-4 py-2">Country</th><th class="border px-4 py-2">City</th></tr></thead>`;
 
                 table += '<tbody>';
                 data.forEach(function (entry) {
                     table += '<tr>';
                     table += '<td class="border px-4 py-2">' + entry.id + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.intensity + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.likelihood + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.relevance + '</td>';
+                    table += '<td class="border px-4 py-2">' + entry.start_year + '</td>';
                     table += '<td class="border px-4 py-2">' + entry.end_year + '</td>';
                     table += '<td class="border px-4 py-2">' + entry.sector + '</td>';
                     table += '<td class="border px-4 py-2">' + entry.topic + '</td>';
