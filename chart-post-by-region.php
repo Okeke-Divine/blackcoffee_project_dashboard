@@ -42,7 +42,7 @@
                     scales: {
                         y: {
                             min: 1,
-                            max:250
+                            max: 250
                         }
                     },
                     plugins: {

@@ -7,7 +7,7 @@
     <title>Dashboard | Black Cofee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -19,7 +19,7 @@
                 <?php require ('chart-post-by-region.php'); ?>
             </div>
             <div>
-            <?php require ('chart-post-by-region.php'); ?>
+                <?php require ('chart-post-by-region.php'); ?>
             </div>
         </div>
         <!-- end charts -->
