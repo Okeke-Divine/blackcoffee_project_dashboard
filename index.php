@@ -5,12 +5,18 @@
 <head>
     <?php require ('meta-head.php'); ?>
     <title>Dashboard | Black Cofee</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        integrity="sha512-ZZfrbOnf6K9vdIwBVDiW6CNvGhnczfeNNyjGtf2YBWy1nS1fUxvTx5QsVjcvTtEZPFowC47Gyf+9xDdWm1WdGQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
+    <div>
+        <!-- charts -->
+        <div>
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+        <!-- end charts -->
+    </div>
     <div class="bg-gray-200 min-h-screen flex items-center justify-center py-5">
         <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full">
             <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
@@ -133,6 +139,48 @@
                 var sortBy = document.getElementById('sort-by').value;
                 fetchData(sortBy, order, limit);
             });
+
+            function createChart(data) {
+                // Extract data for the chart (e.g., intensity, relevance, etc.)
+                var chartData = data.map(entry => entry.intensity);
+
+                // Create the chart
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: Array.from(Array(chartData.length).keys()), // Placeholder labels
+                        datasets: [{
+                            label: 'Intensity',
+                            data: chartData,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Fetch data and create/update the chart
+            function updateChart() {
+                var sortBy = document.getElementById('sort-by').value;
+                var order = document.getElementById('order').value;
+                var limit = document.getElementById('limit').value;
+
+                fetchData(sortBy, order, limit, function (data) {
+                    createChart(data);
+                });
+            }
+
+            // Call the updateChart function when the page loads and whenever sorting parameters change
+            document.addEventListener('change', updateChart);
         });
     </script>
 </body>
