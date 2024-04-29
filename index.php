@@ -144,9 +144,6 @@
             <div>
                 <?php require ('chart-post-by-region.php'); ?>
             </div>
-            <div>
-                <?php require ('chart-post-by-region.php'); ?>
-            </div>
         </div>
         <!-- end charts -->
     </div>
