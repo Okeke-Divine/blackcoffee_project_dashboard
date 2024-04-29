@@ -3,8 +3,10 @@
 require_once('auth-validator.php');
 require_once('conn.php');
 
+$selector = isset($_GET['selector']) ? $_GET['selector'] : 'region';
+
 // Query to get the count of posts by region
-$query = "SELECT region, COUNT(*) AS post_count FROM data GROUP BY region";
+$query = "SELECT $selector, COUNT(*) AS post_count FROM data GROUP BY $selector";
 
 // Execute the query
 $result = $conn->query($query);

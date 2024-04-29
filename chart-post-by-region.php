@@ -10,7 +10,7 @@
         // Function to fetch data from the API
         function fetchData() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "chart-post-by-region-api.php", true);
+            xhr.open("GET", "api/chart-post-by-...-api.php", true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var data = JSON.parse(xhr.responseText);

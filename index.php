@@ -12,18 +12,6 @@
 </head>
 
 <body>
-    <div class="bg-gray-200 flex items-center justify-center py-5">
-        <!-- charts -->
-        <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full grid gird-cols-1 gap-3 md:grid-cols-2">
-            <div>
-                <?php require ('chart-post-by-region.php'); ?>
-            </div>
-            <div>
-                <?php require ('chart-post-by-region.php'); ?>
-            </div>
-        </div>
-        <!-- end charts -->
-    </div>
     <div class="bg-gray-200 min-h-screen flex items-center justify-center py-5">
         <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full">
             <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
@@ -79,7 +67,7 @@
             // Function to fetch data from API and render table
             function fetchData(sortBy, order, limit) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("GET", "api.php?sortBy=" + sortBy + "&order=" + order + "&limit=" + limit, true);
+                xhr.open("GET", "api/api.php?sortBy=" + sortBy + "&order=" + order + "&limit=" + limit, true);
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var data = JSON.parse(xhr.responseText);
@@ -147,49 +135,22 @@
                 fetchData(sortBy, order, limit);
             });
 
-            function createChart(data) {
-                // Extract data for the chart (e.g., intensity, relevance, etc.)
-                var chartData = data.map(entry => entry.intensity);
-
-                // Create the chart
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: Array.from(Array(chartData.length).keys()), // Placeholder labels
-                        datasets: [{
-                            label: 'Intensity',
-                            data: chartData,
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Fetch data and create/update the chart
-            function updateChart() {
-                var sortBy = document.getElementById('sort-by').value;
-                var order = document.getElementById('order').value;
-                var limit = document.getElementById('limit').value;
-
-                fetchData(sortBy, order, limit, function (data) {
-                    createChart(data);
-                });
-            }
-
-            // Call the updateChart function when the page loads and whenever sorting parameters change
-            document.addEventListener('change', updateChart);
         });
     </script>
+
+    <div class="bg-gray-200 flex items-center justify-center py-5">
+        <!-- charts -->
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full grid gird-cols-1 gap-3 md:grid-cols-1">
+            <div>
+                <?php require ('chart-post-by-region.php'); ?>
+            </div>
+            <div>
+                <?php require ('chart-post-by-region.php'); ?>
+            </div>
+        </div>
+        <!-- end charts -->
+    </div>
+
 </body>
 
 </html>
