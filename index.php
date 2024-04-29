@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <div>
+    <div class="bg-gray-200 flex items-center justify-center py-5">
         <!-- charts -->
-        <div>
-            <canvas id="myChart" width="400" height="200"></canvas>
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full">
+            <?php require('chart-post-by-region.php'); ?>
         </div>
         <!-- end charts -->
     </div>

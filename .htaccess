@@ -4,4 +4,3 @@ RewriteRule ^login?$ login.php
 RewriteRule ^api?$ api.php
 RewriteRule ^logout?$ logout.php
 RewriteRule ^import?$ import.php
-RewriteRule ^chart-api?$ chart-api.php
