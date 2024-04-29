@@ -1,5 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <div class="container mx-auto">
     <h1 class="text-3xl font-semibold mb-4">Posts by Region</h1>
     <div class="w-3/4 mx-auto">
@@ -33,17 +31,23 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Number of Posts',
                         data: counts,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(126, 34, 206, 0.2)',
+                        borderColor: 'rgba(126, 34, 206, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
+                    responsive: true,
                     scales: {
                         y: {
-                            beginAtZero: true
+                            min: 1,
+                            max:250
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Hide the legend
                         }
                     }
                 }

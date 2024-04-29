@@ -7,13 +7,20 @@
     <title>Dashboard | Black Cofee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
     <div class="bg-gray-200 flex items-center justify-center py-5">
         <!-- charts -->
-        <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full">
-            <?php require('chart-post-by-region.php'); ?>
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full grid gird-cols-1 gap-3 md:grid-cols-2">
+            <div>
+                <?php require ('chart-post-by-region.php'); ?>
+            </div>
+            <div>
+            <?php require ('chart-post-by-region.php'); ?>
+            </div>
         </div>
         <!-- end charts -->
     </div>
