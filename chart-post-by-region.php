@@ -1,5 +1,5 @@
 <div class="    ">
-    <h1 class="text-3xl font-semibold mb-4">Posts by Region</h1>
+    <h1 class="text-3xl font-semibold mb-4">Posts by Region (Chart.js)</h1>
     <div class="w-full mx-auto">
         <canvas id="myChart" width="400" height="200"></canvas>
     </div>
