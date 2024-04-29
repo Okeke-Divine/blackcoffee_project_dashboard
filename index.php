@@ -31,12 +31,28 @@
                         <option value="rand()">Random</option>
                     </select>
                 </div>
-                <div>
-                    <label for="order" class="text-gray-500 mr-2">Order:</label>
-                    <select id="order" class="p-2 border border-gray-300 rounded">
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
+                <div class="flex flex-wrap gap-3">
+                    <div>
+                        <label for="order" class="text-gray-500 mr-2">Order:</label>
+                        <select id="order" class="p-2 border border-gray-300 rounded">
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select id="limit" class="p-2 border border-gray-300 rounded">
+                            <option value="asc">10</option>
+                            <option value="desc">20</option>
+                            <option value="desc">50</option>
+                            <option value="desc">100</option>
+                            <option value="desc">200</option>
+                            <option value="desc">500</option>
+                            <option value="desc">700</option>
+                            <option value="desc">700</option>
+                            <option value="desc">900</option>
+                            <option value="desc">1000</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div id="table-container" class="overflow-x-auto w-full">
@@ -48,9 +64,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Function to fetch data from API and render table
-            function fetchData(sortBy, order) {
+            function fetchData(sortBy, order, limit) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("GET", "api.php?sortBy=" + sortBy + "&order=" + order, true);
+                xhr.open("GET", "api.php?sortBy=" + sortBy + "&order=" + order + "&limit=" + limit, true);
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var data = JSON.parse(xhr.responseText);
@@ -94,19 +110,28 @@
             }
 
             // Call the fetchData function with default sorting parameters when the page loads
-            fetchData('id', 'asc');
+            fetchData('id', 'asc', '10');
 
             // Event listener for dropdown changes
             document.getElementById('sort-by').addEventListener('change', function () {
                 var sortBy = this.value;
                 var order = document.getElementById('order').value;
+                var limit = document.getElementById('limit').value;
                 fetchData(sortBy, order);
             });
 
             document.getElementById('order').addEventListener('change', function () {
                 var order = this.value;
                 var sortBy = document.getElementById('sort-by').value;
-                fetchData(sortBy, order);
+                var limit = document.getElementById('limit').value;
+                fetchData(sortBy, order, limit);
+            });
+
+            document.getElementById('limit').addEventListener('change', function () {
+                var limit = this.value;
+                var order = document.getElementById('order').value;
+                var sortBy = document.getElementById('sort-by').value;
+                fetchData(sortBy, order, limit);
             });
         });
     </script>

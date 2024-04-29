@@ -7,9 +7,11 @@ require_once("conn.php");
 // Default sorting and ordering parameters
 $sortBy = isset($_GET['sortBy']) ? $_GET['sortBy'] : 'id';
 $order = isset($_GET['order']) && ($_GET['order'] == 'desc') ? 'DESC' : 'ASC';
+$limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
+$limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
 
 // Query to fetch data from the database, filtering out NULL values for the sorting column
-$query = "SELECT * FROM data WHERE $sortBy IS NOT NULL ORDER BY $sortBy $order LIMIT 10";
+$query = "SELECT * FROM data WHERE $sortBy IS NOT NULL ORDER BY $sortBy $order LIMIT $limit";
 
 // Execute the query
 $result = $conn->query($query);
