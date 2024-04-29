@@ -41,16 +41,16 @@
                     </div>
                     <div>
                         <select id="limit" class="p-2 border border-gray-300 rounded">
-                            <option value="asc">10</option>
-                            <option value="desc">20</option>
-                            <option value="desc">50</option>
-                            <option value="desc">100</option>
-                            <option value="desc">200</option>
-                            <option value="desc">500</option>
-                            <option value="desc">700</option>
-                            <option value="desc">700</option>
-                            <option value="desc">900</option>
-                            <option value="desc">1000</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="500">500</option>
+                            <option value="700">700</option>
+                            <option value="800">800</option>
+                            <option value="900">900</option>
+                            <option value="1000">1000</option>
                         </select>
                     </div>
                 </div>

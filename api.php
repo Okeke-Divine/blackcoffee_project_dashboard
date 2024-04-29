@@ -8,7 +8,7 @@ require_once("conn.php");
 $sortBy = isset($_GET['sortBy']) ? $_GET['sortBy'] : 'id';
 $order = isset($_GET['order']) && ($_GET['order'] == 'desc') ? 'DESC' : 'ASC';
 $limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
-$limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
+$limit = (int)$limit;
 
 // Query to fetch data from the database, filtering out NULL values for the sorting column
 $query = "SELECT * FROM data WHERE $sortBy IS NOT NULL ORDER BY $sortBy $order LIMIT $limit";
