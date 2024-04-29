@@ -12,6 +12,12 @@
 </head>
 
 <body>
+    <div class="bg-gray-200 flex items-center justify-center py-5">
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full flex justify-between">
+            <div class="font-bold">This is just a sample displaying the use of PHP + MYSQL + AJAX + CHAR.JS</div>
+            <div><a href="/logout"  class="text-purple-700">Logout</a></div>
+        </div>
+    </div>
     <div class="bg-gray-200 min-h-screen flex items-center justify-center py-5">
         <div class="bg-white p-8 shadow-md rounded-lg max-w-[90%] w-full">
             <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>

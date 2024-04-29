@@ -55,7 +55,7 @@ if (isset($_SESSION['isLoggedIn'])) {
             </form>
             <div class="mt-5 text-center">Built by <a href="https://okekedivine.vercel.app" target="_blank"
                     class="text-purple-700">Dev Divine</a></div>
-                    <div class="mt-1 text-center">Code on <a href="https://okekedivine.vercel.app" target="_blank"
+                    <div class="mt-1 text-center">Code on <a href="http://github.com/Okeke-Divine/blackcoffee_project_dashboard" target="_blank"
                     class="text-purple-700">Github</a></div>
         </div>
     </div>
