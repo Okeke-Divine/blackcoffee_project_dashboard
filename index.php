@@ -67,7 +67,7 @@
             // Function to fetch data from API and render table
             function fetchData(sortBy, order, limit) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("GET", "api/api.php?sortBy=" + sortBy + "&order=" + order + "&limit=" + limit, true);
+                xhr.open("GET", "api/tbl-api.php?sortBy=" + sortBy + "&order=" + order + "&limit=" + limit, true);
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var data = JSON.parse(xhr.responseText);

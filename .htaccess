@@ -1,6 +1,6 @@
 RewriteEngine On
 
 RewriteRule ^login?$ login.php
-RewriteRule ^api?$ api.php
+RewriteRule ^api/tbl-api?$ api/tbl-api.php
 RewriteRule ^logout?$ logout.php
 RewriteRule ^import?$ import.php

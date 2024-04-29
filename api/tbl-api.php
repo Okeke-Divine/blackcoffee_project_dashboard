@@ -1,8 +1,8 @@
 <?php
 
 // Include the PHP file containing the authentication validator and database connection
-require_once("auth-validator.php");
-require_once("conn.php");
+require_once('../auth-validator.php');
+require_once('../conn.php');
 
 // Default sorting and ordering parameters
 $sortBy = isset($_GET['sortBy']) ? $_GET['sortBy'] : 'id';

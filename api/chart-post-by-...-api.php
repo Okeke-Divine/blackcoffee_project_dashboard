@@ -1,7 +1,7 @@
 <?php
 // Include the authentication validator and database connection
-require_once('auth-validator.php');
-require_once('conn.php');
+require_once('../auth-validator.php');
+require_once('../conn.php');
 
 $selector = isset($_GET['selector']) ? $_GET['selector'] : 'region';
 

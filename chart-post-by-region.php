@@ -1,6 +1,6 @@
-<div class="container mx-auto">
+<div class="    ">
     <h1 class="text-3xl font-semibold mb-4">Posts by Region</h1>
-    <div class="w-3/4 mx-auto">
+    <div class="w-full mx-auto">
         <canvas id="myChart" width="400" height="200"></canvas>
     </div>
 </div>
@@ -8,6 +8,10 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Function to fetch data from the API
+
+        let data_cache = null;
+        console.log(data_cache);
+
         function fetchData() {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "api/chart-post-by-...-api.php", true);
@@ -15,6 +19,7 @@
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var data = JSON.parse(xhr.responseText);
                     renderChart(data);
+                    data_cache = data;
                 }
             };
             xhr.send();
@@ -47,14 +52,17 @@
                     },
                     plugins: {
                         legend: {
-                            display: false // Hide the legend
+                            display: false 
                         }
                     }
                 }
             });
+            window.addEventListener('resize', function () {
+                myChart.destroy(); 
+                renderChart(data_cache); 
+            });
         }
 
-        // Fetch data and render the chart when the page loads
         fetchData();
     });
 </script>
