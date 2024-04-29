@@ -117,7 +117,7 @@
                 var sortBy = this.value;
                 var order = document.getElementById('order').value;
                 var limit = document.getElementById('limit').value;
-                fetchData(sortBy, order);
+                fetchData(sortBy, order, limit);
             });
 
             document.getElementById('order').addEventListener('change', function () {
